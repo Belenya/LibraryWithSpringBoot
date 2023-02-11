@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Читатели</title>
+</head>
+<body th:align="middle">
+<h1 th:align="middle">Читатели</h1>
+<div>
+    <div th:each="user : ${users}">
+        <a th:href="@{users/{id}(id=${user.getId()})}" th:text= "${user.getFullName()} + ', ' + ${user.getYearOfBirth()}">VALUE</a>
+    </div>
+    <br>
+    <form th:method="GET" th:action="@{users/new}">
+        <input type="submit" value="Новый читатель"/>
+    </form>
+    <form th:method="GET" th:action="@{books}">
+        <input type="submit" value="Книги"/>
+    </form>
+</div>
+</body>
+</html>
